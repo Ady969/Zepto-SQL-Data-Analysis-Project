@@ -40,7 +40,7 @@ This dataset simulates a real-world grocery product listing from an e-commerce p
 SELECT DISTINCT category FROM zepto ORDER BY category;
 SELECT outOfStock, COUNT(sku_id) FROM zepto GROUP BY outOfStock;
 
-### 2️⃣ Data Cleaning
+### 2️⃣** Data Cleaning**
 
    Removed invalid products with zero MRP.
 

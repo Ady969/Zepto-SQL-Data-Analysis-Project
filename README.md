@@ -39,7 +39,7 @@ This dataset simulates a real-world grocery product listing from an e-commerce p
 ```sql
 SELECT DISTINCT category FROM zepto ORDER BY category;
 SELECT outOfStock, COUNT(sku_id) FROM zepto GROUP BY outOfStock;
-
+```
 ### 2️⃣ Data Cleaning
 
    Removed invalid products with zero MRP.
@@ -49,6 +49,7 @@ SELECT outOfStock, COUNT(sku_id) FROM zepto GROUP BY outOfStock;
 ```sql
 UPDATE zepto
 SET mrp = mrp / 100.0, discountSellingPrice = discountSellingPrice / 100.0;
+```
 
 ### 3️⃣ Insights & Analysis
    🥇 Q1. Top 10 Best-Value Products by Discount %
@@ -57,12 +58,14 @@ SET mrp = mrp / 100.0, discountSellingPrice = discountSellingPrice / 100.0;
    FROM zepto
    ORDER BY discountPercent DESC
    LIMIT 10;
+```
 
 ### 🚫 Q2. High-MRP Products Currently Out of Stock
    SELECT DISTINCT(name), mrp
    FROM zepto
    WHERE outOfStock = TRUE AND mrp > 300
    ORDER BY mrp DESC;
+  ```
 
 ### 💰 Q3. Estimated Revenue by Category
    SELECT category, 
@@ -70,12 +73,13 @@ SET mrp = mrp / 100.0, discountSellingPrice = discountSellingPrice / 100.0;
    FROM zepto
    GROUP BY category
    ORDER BY revenue DESC;
-
+```
 ### 🎯 Q4. Expensive Products (MRP > ₹500) with Minimal Discount (<10%)
    SELECT DISTINCT(name), mrp, discountPercent
    FROM zepto
    WHERE mrp > 500 AND discountPercent < 10
-   ORDER BY mrp DESC;
+   ORDER BY mrp DESC; 
+   ```
 
 ### 🧾 Q5. Top 5 Categories Offering Highest Average Discounts
     SELECT category,
@@ -84,6 +88,7 @@ SET mrp = mrp / 100.0, discountSellingPrice = discountSellingPrice / 100.0;
     GROUP BY category
     ORDER BY avg_discount DESC
     LIMIT 5;
+```
 
 ### ⚖️ Q6. Best Value per Gram (Products Above 100g)
     SELECT DISTINCT(name), weightInGms, discountSellingPrice, 
@@ -130,12 +135,8 @@ Project reflects capabilities in data-driven business decision-making and databa
 
 ## 🖼️ Project Snapshots
 
-| Description | Screenshot |
-|--------------|-------------|
-| Data Preview | ![Data Preview](screenshots/data_preview.png) |
-| Top Discounted Products | <img width="1916" height="1012" alt="image" src="https://github.com/user-attachments/assets/fe456ba2-63df-443b-9283-41270cd739a4" />|
-| Different Weights for category |<img width="988" height="218" alt="image" src="https://github.com/user-attachments/assets/6ab77522-93a9-4ee8-be3a-a1695eb8ac86" /> |
-
+| Top Discounted Products | ![Top Discounts](screenshots/top_discount.png) |
+| Weight Types by Category | ![Weight In Grams](screenshots/Category_Weight.png) |
 
 > Screenshots generated from PostgreSQL (pgAdmin4 query results).
 

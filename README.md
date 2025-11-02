@@ -40,17 +40,19 @@ This dataset simulates a real-world grocery product listing from an e-commerce p
 SELECT DISTINCT category FROM zepto ORDER BY category;
 SELECT outOfStock, COUNT(sku_id) FROM zepto GROUP BY outOfStock;
 
-### 2️⃣** Data Cleaning**
+### 2️⃣ Data Cleaning
 
    Removed invalid products with zero MRP.
 
    Converted values from Paise → Rupees for accurate currency analysis.
 
-   UPDATE zepto
-   SET mrp = mrp / 100.0, discountSellingPrice = discountSellingPrice / 100.0;
+```sql
+UPDATE zepto
+SET mrp = mrp / 100.0, discountSellingPrice = discountSellingPrice / 100.0;
 
 ### 3️⃣ Insights & Analysis
    🥇 Q1. Top 10 Best-Value Products by Discount %
+   ```sql
    SELECT name, mrp, discountPercent
    FROM zepto
    ORDER BY discountPercent DESC
@@ -153,3 +155,5 @@ Project reflects capabilities in data-driven business decision-making and databa
 Developed by: Aadil Shaikh
 Role: Data Analyst | Quality Engineer | SQL & Power BI Enthusiast
 Focus: Business Analytics | Data Visualization | Data Domain
+
+
